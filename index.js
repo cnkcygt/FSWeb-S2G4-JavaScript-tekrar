@@ -1,5 +1,5 @@
 /* Aşağıda global olarak tanımlanmış değişkenler bulunmaktadır, bunları değiştirmeyiniz. Açıklamaları takip ederek görevleri tamamlayın. */
-
+console.clear();
 const pi = 3.14159;
 
 const sayilar = [
@@ -103,28 +103,49 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+let enKucuk = sayilar[0];
+let enBuyuk = sayilar[0];
 
-/* kodlar buraya */
+for (let i = 1; i < sayilar.length; i++) {
+  if(sayilar[i] > enBuyuk) enBuyuk = sayilar[i];
+  if(sayilar[i] < enKucuk) enKucuk = sayilar[i];
+}
 
 // 3b çözümü:
-
-/* kodlar buraya */
+const uceTamBolunenler = []
+sayilar.forEach(sayi => {
+  if (sayi % 3 === 0) uceTamBolunenler.push(sayi);
+})
 
 // 3c çözümü:
+let uceBolunenlerinToplami = uceTamBolunenler.reduce((sum, number) => sum + number, 0)
 
-/* kodlar buraya */
+console.log(uceBolunenlerinToplami);
 
 // 3d çözümü
+const besYuzdenKucukSayilar = sayilar.filter(sayi => sayi < 500);
 
-/* kodlar buraya */
+console.log(besYuzdenKucukSayilar);
 
 // 3e çözümü
+const siraliSayilar = besYuzdenKucukSayilar.sort((a, b) => a - b)
 
-/* kodlar buraya */
+console.log(siraliSayilar);
 
 // 3f çözümü
+const tekrarEdenSayilar = [];
+const tekrarSayilari = {};
 
-/* kodlar buraya */
+for (let sayi of sayilar) {
+  if(tekrarSayilari[sayi]) tekrarSayilari[sayi]++;
+  else tekrarSayilari[sayi] = 1;
+}
+
+for (let sayi in tekrarSayilari) {
+  if(tekrarSayilari[sayi] > 1) tekrarEdenSayilar.push(`${sayi} sayısı ${tekrarSayilari[sayi]} kere tekrar edilmiştir`)
+}
+
+console.log(tekrarEdenSayilar);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
